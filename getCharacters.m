@@ -12,10 +12,10 @@ classdef getCharacters
             ocrTest=ocr(preProcImg);
             readTest=ocrTest.Text;
 
-            disp(readTest);
+            %disp(readTest);
 
             for i=1:length(chars)
-                disp(i);
+                %disp(i);
                 if contains(readTest,chars(i))
                     loc=locateText(ocrTest,chars(i));
                     sizeLoc=size(loc);
@@ -26,12 +26,12 @@ classdef getCharacters
                     width=loc((rows*2)+1);
                     height=loc((rows*3)+1);
                     tempLoc=[x y width height];
-                    disp(tempLoc);
+                    %disp(tempLoc);
                     %pImage=preProcImg{loc(1):loc(1)+loc(3),loc(2):loc(2)+loc(4)};
 
                     tempChar=imcrop(preProcImg,tempLoc);
-                    figure();
-                    imshow(tempChar);
+                    %figure();
+                    %imshow(tempChar);
 
                     if isstrprop(chars(i),'lower')
                         fileName=append('temp/',chars(i),'_l_match.png');
